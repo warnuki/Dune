@@ -21,11 +21,11 @@ header{
   height: auto;
 }
 
-/* .container{
+ .container{
   max-height: 100vh;
   scroll-snap-type: y mandatory;
   overflow: scroll;
-} */
+} 
 
 .items{
   scroll-snap-align: start;
@@ -81,7 +81,7 @@ footer{
   height: 100vh;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 1;
+  z-index: 3;
 }
 
 .logo:hover{
@@ -139,6 +139,12 @@ h2{
   z-index: 2;
   }
 
+
+
+/* Page A propos */
+
+
+
   #apropos{
     display: grid;
     grid-template-rows: 20vh 30vh 5vh 35vh 10vh;
@@ -149,7 +155,7 @@ h2{
     grid-row-start: 3;
     grid-row-end: 5;
     grid-column-start: 1;
-    grid-column-end: 7;
+    grid-column-end: 8;
     background-color: #BCBCBC;
     opacity: 90%;
     z-index: 2;
@@ -192,36 +198,50 @@ h2{
     justify-self:end;
   }
 
-  #carrousel{
-
-  }
-
 #desc_perso{
   display: grid;
   grid-template-columns: 5vw 1fr 1fr 5vw; 
 }
 
-#personnage{
-    display: grid;
-    grid-column-start: 2;
-    grid-template-rows: 16vh 16vh 16vh;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    align-self: center;
-    gap: 1vw;
-    grid-auto-flow: row;
-  }
+/* Page Caracters */
+
+#personnages{
+  display: grid;
+  grid-template-rows: 10vh 30vh 15vh 20vh 15vh 10vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#titreP{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-self: end;
+  justify-self:end;
+}
+
+.bandeauC{
+  grid-row-start: 4;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  background-color: #BCBCBC;
+  opacity: 90%;
+  z-index: 2;
+}
+
+#tPerso{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: end;
+  justify-self:end;
+}
 
 #fiche{
   grid-column-start: 3;
   align-self: center;
-}
-
-#personnage>img{
-  display: block;
-  object-fit: cover;
-  width: 8vw;
-  height: 100%;
-  z-index: 3;
 }
 
 /* #personnage>img:nth-child(1){

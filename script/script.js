@@ -67,6 +67,30 @@ window.onload = () => {
     slideWidth = diapo.getBoundingClientRect().width;
     slideNext();
   })
+
+
+
+
+  const diapoVideo = document.querySelector(".diapoVideo");
+  elementsVideo = document.querySelector(".elementsVideo");
+  slidesVideo = Array.from(elementsVideo.children);
+
+  let nextVideo = document.querySelector("#nav1");
+  let prevVideo = document.querySelector("#nav2");
+
+  timerVideo = setInterval(slideNextVideo, 4000);
+
+  nextVideo.addEventListener("click", slideNextVideo);
+  prevVideo.addEventListener("click", slidePrevVideo);
+
+  nextVideo.addEventListener("mouseover", stopTimerVideo);
+  prevVideo.addEventListener("mouseover", stopTimerVideo);
+  nextVideo.addEventListener("mouseout", startTimerVideo);
+  prevVideo.addEventListener("mouseout", startTimerVideo);
+
+  window.addEventListener("resize", () => {
+    slideNextVideo();
+  }) 
 }
 
 function slideNext(){
@@ -76,7 +100,7 @@ function slideNext(){
   }
   let decal = -slideWidth * compteur;
   elements.style.transform = `translateX(${decal}px)`;
-
+  console.log("test2");
   nomA();
 }
 
@@ -88,6 +112,7 @@ function slidePrev(){
   let decal = -slideWidth * compteur;
   elements.style.transform = `translateX(${decal}px)`;
   nomA();
+  console.log("test")
 }
 
 function stopTimer(){
@@ -137,3 +162,38 @@ function nomA(){
   document.getElementById("caption").innerHTML = text;
 }
 
+//Diapo video 
+let compteurVideo = 0;
+let timerVideo, elementsVideo, slidesVideo;
+
+function slideNextVideo(){
+  compteurVideo ++;
+  if(compteurVideo == slidesVideo.length){
+    compteurVideo = 0;
+  }
+  elementsVideo.style.opacity =  "0";
+}
+
+function slidePrevVideo(){
+  compteurVideo --;
+  if(compteurVideo < 0){
+    compteurVideo = slidesVideo.length -1;
+  }
+  elementsVideo.style.opacity = "1";
+}
+
+function stopTimerVideo(){
+  clearInterval(timerVideo);
+}
+
+function startTimerVideo(){
+  timerVideo = setInterval(slideNextVideo, 4000);
+} 
+
+timerVideo = setInterval(function() {
+  for (var i = 0; i < slidesVideo.length; i++) {
+    slidesVideo[i].style.opacity = "0";
+  }
+  compteurVideo = (compteurVideo!= slidesVideo.length - 1) ? compteurVideo + 1 : 0;
+  slidesVideo[compteurVideo].style.opacity = 1;
+}, 3000);

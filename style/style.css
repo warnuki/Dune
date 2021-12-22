@@ -132,13 +132,6 @@ a{
 h2{
   color: #bfbfbf;
 }
-#carte {
-  width: 50vw;
-  height: 50vh;
-  margin: auto;
-  z-index: 2;
-  }
-
 
 
 /* Page A propos */
@@ -298,6 +291,11 @@ h2{
 	left: 0;
 	transform: rotate(45deg);
 }
+
+.chevron.left:hover, .chevron.right:hover {
+  color: black;
+}
+
 .chevron.left{
   grid-column-start: 1;
   grid-column-end: 1;
@@ -357,6 +355,28 @@ h2{
 	transform: rotate(45deg);
 }
 
+.chevron.leftV:hover, .chevron.rightV:hover {
+  color: black;
+}
+
+.elementsV{
+  display: flex;
+  transition: 0.5s linear;
+}
+
+.elementV{
+  flex: 1 0 100%;
+}
+
+.elementV > img{
+  width : 100%;
+  position: absolute;
+  transition: opacity .5s ease-in;
+}
+.elementV > img +.elementV > img{
+  opacity: 0; 
+}
+
 .chevron.leftV{
   grid-column-start: 2;
   grid-column-end: 2;
@@ -385,40 +405,88 @@ h2{
   grid-row-start: 2;
   grid-row-end: 5;
   z-index: 2;
-  opacity: 100%; 
+  opacity: 100%;
 }
+
+
+#map{
+  display: grid;
+  grid-template-rows: 10vh 30vh 15vh 20vh 15vh 10vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#titreF{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start:2;
+    grid-row-end: 2;
+    align-self: end;
+    justify-self:end;
+}
+
+#carte {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  z-index: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  }
+
+#info {
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  z-index: 2;
+  }
+
+.bandeauF{
+  grid-row-start: 3;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  background-color: #BCBCBC;
+  opacity: 90%;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 10% 30% 50% 10%;
+}
+  
+#desc_perso{
+  display: grid;
+  grid-template-rows: 15vh 70vh 15vh;
+  grid-template-columns: 5vw 40vw 10vw 40vw 5vw ;
+}
+
 
 #fiche{
   grid-column-start: 3;
   align-self: center;
 }
-
-/* #personnage>img:nth-child(1){
-  grid-column-start: 1;
+#titreP{
   grid-row-start: 1;
-}
-
-#personnage>img:nth-child(2){
+  grid-row-end: 1;
   grid-column-start: 2;
+  grid-column-end: 2;
+  align-self: end;
+  justify-self:start;
+}
+#titreP{
   grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  align-self: end;
+  justify-self:start;
 }
 
-#personnage>img:nth-child(3){
-  grid-column-start: 3;
-  grid-row-start: 1;
+#personnage>img{
+  display: block;
+  object-fit: cover;
+  width: 8vw;
+  height: 100%;
+  z-index: 3;
 }
-
-#personnage>img:nth-child(4){
-  grid-column-start: 4;
-  grid-row-start: 1;
-}
-
-#personnage>img:nth-child(5){
-  grid-column-start: 5;
-  grid-row-start: 1;
-}
-
-#personnage>img:nth-child(6){
-  grid-column-start: 1;
-  grid-row-start: 2;
-} */

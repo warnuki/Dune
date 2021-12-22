@@ -39,79 +39,10 @@ L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Ajout de l'échelle
 L.control.scale().addTo(carte);
 
-// VIDEO YOUTUBE
-let etatLecteur;
-
-function lecteurPret(event) {
-  // event.target = lecteur
-  event.target.setVolume(50);
-}
-
-function changementLecteur(event) {
-  // event.data = état du lecteur
-  etatLecteur = event.data;
-}
-
-let lecteur;
-
-function onYouTubeIframeAPIReady() {
-  lecteur = new YT.Player("video", {
-    height: "390",
-    width: "640",
-    videoId: "M7lc1UVf-VE",
-    playerVars: {
-      color: "white",
-      enablejsapi: 1,
-      modestbranding: 1,
-      rel: 0
-    },
-    events: {
-      onReady: lecteurPret,
-      onStateChange: changementLecteur
-    }
-  });
-}
-
-// Hauteur de la vidéo
-const hauteurVideo = $("#video").height();
-// Position Y de la vidéo
-const posYVideo = $("#video").offset().top;
-// Valeur declenchant la modification de l'affichage (choix "esthétique")
-const seuil = posYVideo + 0.75 * hauteurVideo;
-
-// Gestion du défilement
-$(window).scroll(function () {
-  // Récupération de la valeur du défilement vertical
-  const scroll = $(window).scrollTop();
-
-  // Classe permettant l'exécution du CSS
-  $("#video").toggleClass(
-    "scroll",
-    etatLecteur === YT.PlayerState.PLAYING && scroll > seuil
-  );
-});
-
-//Carrousel
-
-// Variable globale
-let index = 0;
-
-// Gestion des événements
-$('span').click(function () {
-  // Récupération index
-  let indexN = $('span').index(this);
-
-  // Renouveller l'image
-  $('img').eq(index).fadeOut(1000).end().eq(indexN).fadeIn(1000);
-
-  // Mettre à jour l'index
-index = indexN;
-});
-
 // Variable diapo
 
 let compteur = 0;
-let timer, elements, slides, slideWidth
+let timer, elements, slides, slideWidth, text;
 
 window.onload = () => {
   const diapo = document.querySelector(".diapo");
@@ -122,12 +53,15 @@ window.onload = () => {
   let next = document.querySelector("#nav-droite");
   let prev = document.querySelector("#nav-gauche");
 
+  timer = setInterval(slideNext, 4000);
 
-  next.addEventListener("click", slideNext);
-  prev.addEventListener("click", slidePrev);
+  next.addEventListener("click", slideNext,nomA);
+  prev.addEventListener("click", slidePrev,nomA);
 
-  diapo.addEventListener("mouseover", stopTimer);
-  diapo.addEventListener("mouseout", startTimer);
+  next.addEventListener("mouseover", stopTimer);
+  prev.addEventListener("mouseover", stopTimer);
+  next.addEventListener("mouseout", startTimer);
+  prev.addEventListener("mouseout", startTimer);
 
   window.addEventListener("resize", () => {
     slideWidth = diapo.getBoundingClientRect().width;
@@ -142,6 +76,8 @@ function slideNext(){
   }
   let decal = -slideWidth * compteur;
   elements.style.transform = `translateX(${decal}px)`;
+
+  nomA();
 }
 
 function slidePrev(){
@@ -151,13 +87,53 @@ function slidePrev(){
   }
   let decal = -slideWidth * compteur;
   elements.style.transform = `translateX(${decal}px)`;
+  nomA();
 }
+
 function stopTimer(){
   clearInterval(timer);
 }
 
 function startTimer(){
-  timer = setinterval(slideNext, 4000);
+  timer = setInterval(slideNext, 4000);
 }
 
+function nomA(){
+  switch (compteur){
+    case 0:
+      text = "Timothée Chalamet: Paul Atreïdes";
+      break;
+    case 1:
+      text = "Rebecca Ferguson: Lady Jessica";
+      break;
+    case 2:
+      text = "Oscar Isaac: Duke Leto Atreïdes";
+      break;
+    case 3:
+      text = "Jason Momoa: Duncan Idaho";
+      break;
+    case 4:
+      text = "Josh Brolin: Gurney Halleck";
+      break;
+    case 5:
+      text = "Chang Chen: Dr. Wellington Yueh";
+      break;
+    case 6:
+      text = "Zendaya: Chani";
+      break;
+    case 7:
+      text = "Javier Bardem: Stilgar";
+      break;
+    case 8:
+      text = "Sharon Duncan-Brewster: Liet Kynes";
+      break;
+    case 9:
+      text = "Stellan Skarsgard: Baron Harkonnen";
+      break;
+    case 10:
+      text = "Dave Bautista: Rabban Harkonnen";
+      break;
+  }
+  document.getElementById("caption").innerHTML = text;
 }
+

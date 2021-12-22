@@ -242,6 +242,7 @@ h2{
   z-index: 2;
 }
 
+
 .elements{
   display: flex;
   transition: 0.5s linear;
@@ -256,6 +257,24 @@ h2{
 }
 
 /* nom acteur */
+#containerT{
+  position: relative;
+  overflow: hidden;
+}
+
+#caption{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  z-index: 2;
+  flex: 1 0 100%;
+}
+
+.captions{
+  display: flex;
+  transition: 0.5s linear;
+}
 
 .chevron::before {
 	border-style: solid;
@@ -297,6 +316,76 @@ h2{
   align-self: center;
   justify-self: center;
   color: lightgray;
+}
+
+/* Page Caracters */
+
+#images{
+  display: grid;
+  grid-template-rows: 20vh 70vh 10vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.bandeauV{
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  background-color: #BCBCBC;
+  opacity: 90%;
+  display: grid;
+  grid-template-rows: 2% 1fr 1fr 1fr 2%;
+  grid-template-columns: 5vw 5vw 80vw 5vw 5vw;
+}
+
+#titreV{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  align-self: end;
+  justify-self:start;
+}
+
+
+.chevron.leftV:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
+.chevron.rightV:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.leftV{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  z-index: 2;
+  align-self: center;
+  color: lightgray;
+}
+.chevron.rightV{
+  grid-column-start: 4;
+  grid-column-end:4;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  z-index: 2;
+  align-self: center;
+  justify-self: end;
+  color: lightgray;
+}
+
+#containerV{
+  position: relative;
+  overflow: hidden;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  z-index: 2;
+  opacity: 100%; 
 }
 
 #fiche{

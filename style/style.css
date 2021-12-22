@@ -16,8 +16,9 @@ header{
 
 #logo_dune>img{
   position: relative;
-  margin-top: 0;
-  width: 7vw;
+  margin-top: 10%;
+  margin-left: 5%;
+  width: 11vw;
   height: auto;
 }
 
@@ -63,15 +64,6 @@ header{
   background-image: url('../medias/poster/dune_poster_vierge.png');
 }
 
-
-h1{
-  font-size: 4vh;
-  margin-left: 15vw;
-  padding-top: 40vh;
-}
-
-
-
 footer{
   display: flex;
   position: fixed;
@@ -105,21 +97,39 @@ a{
   color: white; 
 }
 
-#test{
+#accueil{
+  display: grid;
+  grid-template-rows: 30vh 10vh 45vh 10vh ;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  box-sizing: border-box;
+}
+
+#titreA{
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  align-self: center;
+  justify-self:center;
+}
+
+#containerV{
   position: relative;
-  width: 2vw;
-  height: calc(20vh * 240 / 426);
+  width: 20vw;
+  height: calc(50vw * 390 / 640);
   margin: auto;
 }
 
-#video {
+#video{
   width: 30vw;
-  height: calc(30vw * 240 / 426);
+  height: calc(30vw * 390 / 640);
   display: block;
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 10;
 }
+
 
 .scroll {
   position: fixed !important;
@@ -463,9 +473,20 @@ h2{
 
 
 #fiche{
-  grid-column-start: 3;
-  align-self: center;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 4;
+  grid-column-end: 4;
+  z-index: 3;
+  background-color: rgb(8, 59, 21);
+  opacity: 70%;
 }
+
+#fiche > p {
+  font-size: 150%;
+  color: white;
+}
+
 #titreP{
   grid-row-start: 1;
   grid-row-end: 1;
@@ -474,13 +495,15 @@ h2{
   align-self: end;
   justify-self:start;
 }
-#titreP{
-  grid-row-start: 1;
-  grid-row-end: 1;
+#personnage{
+  grid-row-start: 2;
+  grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 2;
-  align-self: end;
-  justify-self:start;
+  display: grid;
+  grid-template-rows: 20vh 20vh 20vh;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr ;
+  gap: 2% 2%;
 }
 
 #personnage>img{

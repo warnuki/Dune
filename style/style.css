@@ -227,16 +227,76 @@ h2{
   grid-column-end: 8;
   background-color: #BCBCBC;
   opacity: 90%;
+  display: grid;
+  grid-template-rows: 10% auto 10%;
+  grid-template-columns: 10% 30% auto;
+}
+
+#containerD{
+  position: relative;
+  overflow: hidden;
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 5;
   z-index: 2;
 }
 
-#tPerso{
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
-  align-self: end;
-  justify-self:end;
+.elements{
+  display: flex;
+  transition: 0.5s linear;
+}
+
+.element{
+  flex: 1 0 100%;
+}
+
+.element > img{
+  width : 100%;
+}
+
+/* nom acteur */
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 1.5em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 1.5em;
+}
+
+.chevron.left:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
+.chevron.right:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+.chevron.left{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  z-index: 2;
+  align-self: center;
+  color: lightgray;
+}
+.chevron.right{
+  grid-column-start: 7;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  z-index: 2;
+  align-self: center;
+  justify-self: center;
+  color: lightgray;
 }
 
 #fiche{
